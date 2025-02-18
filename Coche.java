@@ -105,4 +105,7 @@ public class Coche {
         }
         return false;
     }
+    public String toString() {
+        return this.matricula + " - " + this.marca + " - " + this.modelo;
+    }
 }
