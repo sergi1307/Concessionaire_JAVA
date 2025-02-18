@@ -27,6 +27,14 @@ public class Coche {
         this.revisar = rev;
         this.revisiones = revi;
     }
+    public Coche(int nb, String mat, String mar, String mod, String col, double pr) {
+        this.numBastidor = nb;
+        this.matricula = mat;
+        this.marca = mar;
+        this.modelo = mod;
+        this.color = col;
+        this.precio = pr;
+    }
 
     public void setNumBastidor(int n) {
         this.numBastidor = n;
