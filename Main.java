@@ -35,7 +35,15 @@ public class Main {
         }
 
         System.out.println("\nProbando mostrarKms():");
-        Coche.mostrarKms(cocheNu); // Coche nuevo
-        Coche.mostrarKms(cocheAnt); // Coche de segunda mano
+        mostrarKms(cocheNu); // Coche nuevo
+        mostrarKms(cocheAnt); // Coche de segunda mano
+    }
+    public static void mostrarKms(Coche c) {
+        if (c instanceof Coche2mano) {
+            Coche2mano coche2m = (Coche2mano) c;
+            System.out.println("El coche de segunda mano tiene " + coche2m.getKm() + " km.");
+        } else {
+            System.out.println("Coche nuevo, con 0 km.");
+        }
     }
 }
