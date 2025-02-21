@@ -54,14 +54,20 @@ public class Main {
                         mostrarKms(cocheNu);
                         mostrarKms(cocheAnt);
                     } else if (opc == 2) {
-                        int n;
+                        String matricula = Leer.leerTexto("Introduzca la matrícula del vehículo a eliminar: ");
+                        boolean encontrado = false;
 
-                        n = Leer.leerEntero("Introduzca el número de coche a mostrar: ");
-                        if (n < 1 || n > coches.size()) {
-                            System.out.println("Error, no está en la lista.");
-                        } else {
-                            System.out.println(coches.get(n - 1));
+                        for (int i = 0; i < coches.size(); i++) {
+                            if (coches.get(i).getMatricula().equals(matricula)) {
+                                System.out.println(coches.get(i));
+                                encontrado = true;
+                                break;
+                            }
                         }
+                        if (!encontrado) {
+                            System.out.println("El coche con esa matricula no existe.");
+                        }
+
                     } else if (opc == 3) {
                         coches.add(new Coche(Leer.leerEntero("Introduzca el número de bastidor: "),
                                             Leer.leerTexto("Introduzca la matrícula: "),
@@ -73,15 +79,22 @@ public class Main {
                                             revs
                         ));
                     } else if (opc == 4) {
-                        int n;
-                        n = Leer.leerEntero("Introduzca el número del coche a eliminar: ");
+                        String matricula = Leer.leerTexto("Introduzca la matrícula del vehículo a eliminar: ");
+                        boolean encontrado = false;
 
-                        if (n < 1 || n > coches.size()) {
-                            System.out.println("Error. Valor introducido no está en la lista.");
-                        } else {
-                            coches.remove(n - 1);
-                            System.out.println("Coche borrado");
+                        for (int i = 0; i < coches.size(); i++) {
+                            if (coches.get(i).getMatricula().equals(matricula)) {
+                                coches.remove(i);
+                                System.out.println("Vehiculo eliminado.");
+                                encontrado = true;
+                                break;
+                            }
                         }
+                        if (!encontrado) {
+                            System.out.println("El coche con esa matricula no existe.");
+                        }
+
+
                     } else if (opc == 5) {
                         for (int i = 0; i < coches.size(); i++) {
                             System.out.println(coches.get(i));
